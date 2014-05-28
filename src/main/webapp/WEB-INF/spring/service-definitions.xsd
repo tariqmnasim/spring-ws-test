@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://develop-for-fun.blogspot.com/spring-ws" xmlns:wst="http://develop-for-fun.blogspot.com/spring-ws">
+  
+  <xs:element name="AddServiceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="firstNumber" type="xs:integer"/>
+        <xs:element name="secondNumber" type="xs:integer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="AddServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="sum" type="xs:integer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>
