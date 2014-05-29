@@ -1,4 +1,4 @@
 spring-ws-test
 ==============
 
-simple web service application
+Spring web service application using XwsSecurityInterceptor security feature with SimplePasswordValidationCallbackHandler
