@@ -8,7 +8,7 @@
 
 	<sws:annotation-driven />
 
-	<!-- To detect @Service, @Component etc -->
+	<!-- To detect @Endpoint, @Service, @Component etc -->
 	<context:component-scan base-package="com.test.ws" />
 
 	<!-- To generate dynamic wsdl -->
@@ -32,24 +32,17 @@
             <property name="policyConfiguration" value="/WEB-INF/spring/securityPolicy.xml"/>
             <property name="callbackHandlers">
                 <list>
-                    <!--<ref bean="certificateHandler"/>-->
-                    <!--<ref bean="authenticationHandler"/>-->
-                    <ref bean="callbackHandler"/>
-                    <!-- <ref bean="callbackHandlerDigest"/> -->
+                    <ref bean="callbackHandlerDigest"/>
                 </list>
             </property>
         </bean>
 	</sws:interceptors>
-	
-	<!-- callback for in memory plain password -->
-    <bean id="callbackHandler" class="org.springframework.ws.soap.security.xwss.callback.SimplePasswordValidationCallbackHandler">
-        <property name="users">
-            <props>
-                <prop key="admin">admin!23</prop>
-                <prop key="user">user!23</prop>
-            </props>
-        </property>
+
+    <bean id="callbackHandlerDigest" class="org.springframework.ws.soap.security.xwss.callback.SpringDigestPasswordValidationCallbackHandler">
+        <property name="userDetailsService" ref="userDetailsService"/>
     </bean>
+
+    <bean id="userDetailsService" class="com.test.ws.services.CustomUserDetailsService" />
 
 
 </beans>
