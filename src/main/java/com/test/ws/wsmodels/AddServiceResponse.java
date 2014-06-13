@@ -6,7 +6,7 @@
 //
 
 
-package com.test.ws.models;
+package com.test.ws.wsmodels;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;

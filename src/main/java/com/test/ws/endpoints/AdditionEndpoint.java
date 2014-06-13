@@ -6,16 +6,12 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.test.ws.models.*;
+import com.test.ws.wsmodels.*;
 import com.test.ws.services.AddService;
 
-/**
-* @author Tariq M Nasim
-*
-*/
 @Endpoint
 public class AdditionEndpoint {
-   //To calculate square of the input.
+   //To calculate sum of two input.
    @Autowired
    private AddService addService;
    
