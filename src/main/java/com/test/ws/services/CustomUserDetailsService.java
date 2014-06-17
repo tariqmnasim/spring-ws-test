@@ -1,10 +1,10 @@
 package com.test.ws.services;
 
 import com.test.ws.dao.UserDao;
+import com.test.ws.domain.User;
 import com.test.ws.enumeration.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
@@ -22,16 +22,17 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) {
         try {
             // Retrieve the user by email
-            com.test.ws.domain.User user = userDao.getUser(email);
+            User user = userDao.getUser(email);
 
             int roleId = user.getRole().getValue();
-            return new User(
+            return new org.springframework.security.core.userdetails.User (
                     user.getEmail(), user.getPassword(), true, true, true, true, getAuthorities(roleId)
             );
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities(Integer role) {

@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://develop-for-fun.blogspot.com/spring-ws", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.test.ws.models;
+package com.test.ws.wsmodels;
